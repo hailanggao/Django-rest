@@ -5,14 +5,19 @@ from django.forms.models import model_to_dict
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from api.models import Product
+from api.serializers import ProductSerializer
 
 
-@api_view(["POST"])
+@api_view(["GET"])
 def api_home(request, *args, **kwargs):
-    model_data = Product.objects.all().order_by("?").first()
+    """
+    DRF API View
+    """
+    instance = Product.objects.all().order_by("?").first()
     data = {}
-    if model_data:
-        data = model_to_dict(model_data, fields=["id", "title"])
+    if instance:
+        data = ProductSerializer(instance).data
+        # data = model_to_dict(instance, fields=["id", "title", "price", "sale_price"])
         # data["ttile"] = model_data.title
         # data["content"] = model_data.content
         # data["price"] = model_data.price
