@@ -1,11 +1,8 @@
-import json
-from django.forms.models import model_to_dict
-
-# from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from api.models import Product
-from api.serializers import ProductSerializer
+
+from .models.products import Product
+from .serializers.product_serializer import ProductSerializer
 
 
 @api_view(["POST"])
