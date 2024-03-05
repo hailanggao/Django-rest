@@ -5,6 +5,6 @@ from .api_views import product_views
 
 urlpatterns = [
     path("", views.api_home),
-    path("product/", product_views.product_create_view),
-    path("product/<int:pk>/", product_views.product_detail_view),
+    path("products/", product_views.product_list_create_view),
+    path("products/<int:pk>/", product_views.product_detail_view),
 ]
