@@ -13,4 +13,9 @@ class ProductSerializer(serializers.ModelSerializer):
 
     # This will call the Product.get_discount method and return it to custimized field discount above
     def get_discount(self, obj):
+
+        if not hasattr(obj, "id"):
+            return None
+        if not isinstance(obj, Product):
+            return None
         return obj.get_discount()
