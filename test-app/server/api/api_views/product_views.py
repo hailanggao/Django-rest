@@ -21,8 +21,8 @@ class ProductListCreateAPIView(generics.ListCreateAPIView):
         # serializer.save(user=self.request.user)
         # print(serializer.validated_data)
         title = serializer.validated_data.get("title")
-        email = serializer.validated_data.pop("email")
-        print(email)
+        # email = serializer.validated_data.pop("email")
+        # print(email)
         content = serializer.validated_data.get("content") or None
         if content is None:
             content = title
